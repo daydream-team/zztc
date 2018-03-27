@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+  <appender name="consoleinfo" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n
+      </pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <Prudent>true</Prudent>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ERROR</level>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>/data/logs/daydream/console/error/error.%d{yyyy-MM-dd}.log
+      </fileNamePattern>
+    </rollingPolicy>
+    <encoder>
+      <pattern>[%-5p] [%d{HH:mm:ss}] %c - %m%n</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name="infoLogAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>/data/logs/daydream/console/info/info.log</file>
+    <append>true</append>
+    <encoder>
+      <pattern>[%d{HH:mm:ss.SSS}] [%t] %-5p %c{36} - %m%n</pattern>
+    </encoder>
+    <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      <level>INFO</level>
+      <onMatch>ACCEPT</onMatch>
+      <onMismatch>DENY</onMismatch>
+    </filter>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>/data/logs/daydream/console/info/info.log.%d{yyyy-MM-dd}</fileNamePattern>
+      <maxHistory>15</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="consoleinfo" />
+    <appender-ref ref="error" />
+    <appender-ref ref="infoLogAppender" />
+  </root>
+
+</configuration>
