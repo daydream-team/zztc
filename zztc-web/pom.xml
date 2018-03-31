@@ -27,12 +27,6 @@
 			<version>3.0.1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.jets3t</groupId>
-			<artifactId>jets3t</artifactId>
-			<version>0.9.2</version>
-		</dependency>
-
 		<!-- MongoDB dependencies begin -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -113,12 +107,6 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>16.0.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>android</groupId>
-			<artifactId>AXMLPrinter</artifactId>
-			<version>2</version>
 		</dependency>
 
 		<dependency>
